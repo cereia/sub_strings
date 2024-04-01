@@ -1,11 +1,10 @@
 def substrings(string, array)
   words_array = string.downcase.split
   matching = words_array.map do |word| 
-    array.map { |dictionary_word| word[dictionary_word]}
-    .select { |word| word != nil}
+    array.map { |dictionary_word| word[dictionary_word] }
+    .select { |word| word != nil }
   end
-  .flatten
-  matching.reduce(Hash.new(0)) do |result, times|
+  matching.flatten.reduce(Hash.new(0)) do |result, times|
     result[times] += 1
     result
   end
